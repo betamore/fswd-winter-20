@@ -2,7 +2,7 @@
 const Sequelize = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     const Task = sequelize.define(
-        "Task",
+        "task",
         {
             name: DataTypes.STRING,
             description: DataTypes.STRING,
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
                         completedAt: null
                     }
                 },
-                completedWithinAnHour: function () {
+                completedWithinAnHour: function() {
                     return {
                         where: {
                             completedAt: {
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
                         }
                     };
                 },
-                completedWithinXHours: function (x) {
+                completedWithinXHours: function(x) {
                     return {
                         where: {
                             completedAt: {
@@ -42,15 +42,15 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     );
-    Task.associate = function (models) {
+    Task.associate = function(models) {
         Task.belongsTo(models.user);
     };
 
-    Task.prototype.isCompleted = function () {
+    Task.prototype.isCompleted = function() {
         return !!this.completedAt;
     };
 
-    Task.prototype.markCompleted = async function () {
+    Task.prototype.markCompleted = async function() {
         const timeNow = new Date();
 
         return this.update({
