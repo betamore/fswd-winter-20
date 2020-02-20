@@ -1,37 +1,38 @@
 {
-  "name": "fswd-lab-3",
-  "version": "2.0.0",
-  "description": "1. Fork the repository to your own Github account. 2. Clone your fork to your own machine. 3. Navigate to the clone on your machine and run `npm install`",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint --ignore-path .gitignore .",
-    "jest": "jest",
-    "test": "npm run lint && npm run jest",
-    "dev": "NODE_ENV=development nodemon ./lib/index.js",
-    "start": "node ./lib/index.js",
-    "coverage": "opn coverage/lcov-report/index.html"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "connect-session-sequelize": "^6.1.1",
-    "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "morgan": "^1.9.1",
-    "pg": "^7.18.1",
-    "pug": "^2.0.4",
-    "sequelize": "^5.21.3"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "jest": "^25.1.0",
-    "nodemon": "^2.0.2",
-    "opn-cli": "^3.1.0",
-    "prettier": "^1.19.1",
-    "sequelize-cli": "^5.5.1",
-    "sqlite3": "^4.1.1",
-    "supertest": "^4.0.2"
-  }
+    "name": "fswd-lab-3",
+    "version": "2.0.0",
+    "description": "1. Fork the repository to your own Github account. 2. Clone your fork to your own machine. 3. Navigate to the clone on your machine and run `npm install`",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint --ignore-path .gitignore .",
+        "jest": "jest",
+        "test": "npm run lint && npm run jest",
+        "dev": "NODE_ENV=development nodemon ./lib/index.js",
+        "start": "node ./lib/index.js",
+        "coverage": "opn coverage/lcov-report/index.html",
+        "heroku-postbuild": "sequelize db:migrate"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "connect-session-sequelize": "^6.1.1",
+        "express": "^4.17.1",
+        "express-session": "^1.17.0",
+        "morgan": "^1.9.1",
+        "pg": "^7.18.1",
+        "pug": "^2.0.4",
+        "sequelize": "^5.21.3"
+    },
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "jest": "^25.1.0",
+        "nodemon": "^2.0.2",
+        "opn-cli": "^3.1.0",
+        "prettier": "^1.19.1",
+        "sequelize-cli": "^5.5.1",
+        "sqlite3": "^4.1.1",
+        "supertest": "^4.0.2"
+    }
 }
