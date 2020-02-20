@@ -8,5 +8,6 @@
         "dialect": "sqlite",
         "storage": "./test.db",
         "operatorsAliases": false
-    }
+    },
+    "production": {}
 }
