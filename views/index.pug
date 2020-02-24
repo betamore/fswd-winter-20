@@ -3,6 +3,7 @@ extends ./layout
 block bodyContents
         h1 Hello #{name}!
         p This is coming from the #[code views/index.pug] file, #{name}!
+        p This was done with an automated deploy!
         if inseam
             p I see that your inseam is #{inseam}.
                 if inseam > 34
