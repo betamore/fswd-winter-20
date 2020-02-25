@@ -2,7 +2,7 @@ Vue.component("task-list", {
     props: ["tasks"],
     template: `
     <ul>
-        <task v-for="task in tasks" :name="task.name" />
+        <task v-for="task in tasks" :key="task.id" :name="task.name" />
     </ul>
     `
 });
@@ -14,7 +14,7 @@ Vue.component("task", {
             return this.name.length % 2 === 0;
         }
     },
-    template: `<li>This is my task component: {{ name }}<span v-if="taskIsCompleted"> is completed</span></li>`
+    template: `<li>{{ name }}<span v-if="taskIsCompleted"> is completed</span></li>`
 });
 
 var app = new Vue({
@@ -51,8 +51,11 @@ var app = new Vue({
         getTaskCount() {
             alert(`There are ${this.numberOfTasks} tasks`);
         },
-        addTask() {
-            this.tasks.push(this.newTask);
+        async addTask() {
+            const response = await axios.post("http://localhost:8000/tasks", {
+                name: this.newTask
+            });
+            this.tasks = response.data;
             this.newTask = "";
         }
     },
