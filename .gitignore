@@ -8,3 +8,4 @@ public/*.ttf
 public/*.eot
 .nyc_output
 *.db
+dist

@@ -1,21 +1,21 @@
 extends ./layout
 
-block bodyContents
-        h1 Hello #{name}!
-        p This is coming from the #[code views/index.pug] file, #{name}!
-        p This was done with an automated deploy!
-        if inseam
-            p I see that your inseam is #{inseam}.
-                if inseam > 34
-                    p Wow, you're tall!
-                if inseam < 26
-                    p How's the weather down there?
+//- block bodyContents
+//-         h1 Hello #{name}!
+//-         p This is coming from the #[code views/index.pug] file, #{name}!
+//-         p This was done with an automated deploy!
+//-         if inseam
+//-             p I see that your inseam is #{inseam}.
+//-                 if inseam > 34
+//-                     p Wow, you're tall!
+//-                 if inseam < 26
+//-                     p How's the weather down there?
         
-        form(
-            action=`/${name}`
-            method="post"
-        )
-            input(
-                type="text"
-                name="inseam"
-            )
+//-         form(
+//-             action=`/${name}`
+//-             method="post"
+//-         )
+//-             input(
+//-                 type="text"
+//-                 name="inseam"
+//-             )
