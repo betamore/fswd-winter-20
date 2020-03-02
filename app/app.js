@@ -5,6 +5,9 @@ import Thing from "./Thing.vue";
 import TaskList from "./TaskList.vue";
 import IndividualTask from "./IndividualTask.vue";
 
+// load in bbulm
+import "./../node_modules/bulma/css/bulma.css";
+
 Vue.use(VueRouter);
 
 const routes = [

@@ -1,14 +1,22 @@
 <template>
-    <div>
-        <p>{{ message }}</p>
-        <p>Routes go here:</p>
-        <ul>
-            <li><router-link to="/">/</router-link></li>
-            <li><router-link to="/thing">/thing</router-link></li>
-            <li><router-link to="/tasks">/tasks</router-link></li>
-        </ul>
-        <router-view />
-    </div>
+    <section class="section">
+        <div class="container is-fluid">
+            <div class="columns">
+                <div class="column is-one-quarter content">
+                    {{ message }}
+                    <p>Routes go here:</p>
+                    <ul>
+                        <li><router-link to="/">/</router-link></li>
+                        <li><router-link to="/thing">/thing</router-link></li>
+                        <li><router-link to="/tasks">/tasks</router-link></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <router-view />
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
