@@ -8,6 +8,8 @@ import IndividualTask from "./IndividualTask.vue";
 // load in bbulm
 import "./../node_modules/bulma/css/bulma.css";
 
+Vue.config.devtools = true;
+
 Vue.use(VueRouter);
 
 const routes = [
