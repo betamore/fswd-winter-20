@@ -7,11 +7,11 @@ module.exports = {
         filename: "dist.js",
         path: path.resolve(__dirname, "public")
     },
-    // resolve: {
-    //     alias: {
-    //         vue$: "vue/dist/vue.esm.js" // 'vue/dist/vue.common.js' for webpack 1
-    //     }
-    // },
+    resolve: {
+        alias: {
+            vue$: "vue/dist/vue.esm.js" // 'vue/dist/vue.common.js' for webpack 1
+        }
+    },
     module: {
         rules: [
             {

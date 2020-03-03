@@ -13,19 +13,15 @@
 import axios from "axios";
 export default {
     props: ["id"],
-    data: function() {
-        return { task: {} };
+    computed: {
+        task() {
+            return this.$store.getters.getTaskById(this.id) || {};
+        }
     },
     methods: {
         toggleCompleted(string, event) {
             console.log("checkbox changed!");
         }
-    },
-    async mounted() {
-        const response = await axios.get(
-            `http://localhost:8000/tasks/${this.id}`
-        );
-        this.task = response.data;
     }
 };
 </script>

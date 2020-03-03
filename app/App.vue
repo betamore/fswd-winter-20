@@ -3,16 +3,10 @@
         <div class="container is-fluid">
             <div class="columns">
                 <div class="column is-one-quarter content">
-                    {{ message }}
-                    <p>Routes go here:</p>
-                    <ul>
-                        <li><router-link to="/">/</router-link></li>
-                        <li><router-link to="/thing">/thing</router-link></li>
-                        <li><router-link to="/tasks">/tasks</router-link></li>
-                    </ul>
+                    <NavBar ref="navbarComponent" />
                 </div>
                 <div class="column">
-                    <router-view />
+                    <router-view @addedTask="addedTaskEvent" />
                 </div>
             </div>
         </div>
@@ -21,8 +15,10 @@
 
 <script>
 import axios from "axios";
+import NavBar from "./NavBar.vue";
 
 export default {
+    components: { NavBar },
     data: function() {
         return {
             message: "This is the application"
@@ -52,6 +48,13 @@ export default {
         //     this.tasks = response.data;
         //     this.newTask = "";
         // }
+        addedTaskEvent() {
+            console.log("A task was added!");
+            this.$refs.navbarComponent.updateNumberOfTasks();
+        }
+    },
+    async mounted() {
+        this.$store.dispatch("fetchTasks");
     }
 };
 </script>
