@@ -1,6 +1,7 @@
 <template>
     <div>
         <input
+            v-if="!task.completedAt"
             type="checkbox"
             @change="toggleCompleted"
             :checked="task.completedAt"
@@ -19,8 +20,13 @@ export default {
         }
     },
     methods: {
-        toggleCompleted(string, event) {
-            console.log("checkbox changed!");
+        async toggleCompleted(event) {
+            try {
+                await this.$store.dispatch("completeTask", this.task);
+                this.$router.push("/tasks");
+            } catch (e) {
+                console.log(e);
+            }
         }
     }
 };

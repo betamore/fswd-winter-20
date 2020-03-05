@@ -54,6 +54,7 @@ export default {
         }
     },
     async mounted() {
+        this.$store.dispatch("checkLogin");
         this.$store.dispatch("fetchTasks");
     }
 };
