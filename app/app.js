@@ -9,6 +9,7 @@ import Thing from "./Thing.vue";
 import TaskList from "./TaskList.vue";
 import IndividualTask from "./IndividualTask.vue";
 import AddTask from "./AddTask.vue";
+import Login from "./Login.vue";
 import Register from "./Register.vue";
 
 // load in bbulm
@@ -65,9 +66,17 @@ var store = new Vuex.Store({
             const response = await axios.post("/register", user);
             store.commit("setUser", response.data);
         },
+        async loginUser(store, user) {
+            const response = await axios.post("/login", user);
+            store.commit("setUser", response.data);
+        },
         async checkLogin(store) {
             const response = await axios.get("/check-login");
             store.commit("setUser", response.data);
+        },
+        async logoutUser(store) {
+            await axios.post("/logout");
+            store.commit("setUser", null);
         }
     },
     getters: {
@@ -98,7 +107,8 @@ const routes = [
     { path: "/tasks", component: TaskList },
     { path: "/tasks/add", component: AddTask },
     { path: "/tasks/:id", component: IndividualTask, props: true },
-    { path: "/register", component: Register }
+    { path: "/register", component: Register },
+    { path: "/login", component: Login }
 ];
 
 const router = new VueRouter({
