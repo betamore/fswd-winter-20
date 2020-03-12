@@ -9,3 +9,4 @@ public/*.eot
 .nyc_output
 *.db
 dist
+public/dist.js

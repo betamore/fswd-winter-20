@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task vue component should render something 1`] = `
+<ol>
+  <li>
+    <router-link-stub
+      to="/tasks/1234"
+    >
+       Task name #1
+    </router-link-stub>
+     
+    <span>
+      is completed
+    </span>
+  </li>
+</ol>
+`;

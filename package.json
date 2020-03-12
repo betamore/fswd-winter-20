@@ -7,6 +7,8 @@
         "lint": "eslint --ignore-path .gitignore .",
         "jest": "jest",
         "test": "npm run lint && npm run jest",
+        "test-server": "webpack && PORT=8888 NODE_ENV=test npm start",
+        "test-setup-db": "rm ./test.db && NODE_ENV=test npx sequelize db:migrate",
         "dev": "NODE_ENV=development nodemon ./lib/index.js",
         "start": "node ./lib/index.js",
         "coverage": "opn coverage/lcov-report/index.html",
@@ -37,6 +39,11 @@
         "webpack": "^4.41.6"
     },
     "devDependencies": {
+        "@vue/test-utils": "^1.0.0-beta.32",
+        "babel-core": "^6.26.3",
+        "babel-jest": "^25.1.0",
+        "babel-preset-env": "^1.7.0",
+        "cypress": "^4.1.0",
         "eslint": "^6.8.0",
         "jest": "^25.1.0",
         "nodemon": "^2.0.2",
@@ -45,6 +52,7 @@
         "sequelize-cli": "^5.5.1",
         "sqlite3": "^4.1.1",
         "supertest": "^4.0.2",
+        "vue-jest": "^3.0.5",
         "webpack-cli": "^3.3.11",
         "webpack-dev-middleware": "^3.7.2"
     }
